@@ -1,0 +1,39 @@
+* {
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+section {
+  background: url("https://i.imgur.com/XhP2iCn.jpg");
+  background-attachment: fixed;
+  color: white;
+}
+
+.navbar-brand {
+  background-color: black;
+}
+
+div#navMenu.navbar-menu {
+  background-color: black;
+}
+
+div.card-content {
+  color: black;
+}
+
+html {
+  background-color: black;
+  color: white;
+}
+
+a.navbar-item {
+  color: white;
+}
+
+h1.title {
+  color: white;
+
+}
+
+label.label {
+  color: white;
+}

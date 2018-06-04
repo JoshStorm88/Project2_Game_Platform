@@ -1,0 +1,43 @@
+<h2>Edit <%= game.name %></h2>
+
+<form action="/games/<%= game.id %>" method="post">
+  <input type="hidden" name="_method" value="PUT">
+ <div class="field">
+   <label class="label">Game Name</label>
+   <div class="control">
+     <input class="input" type="text" name="name" value="<%= game.name %>">
+   </div>
+ </div>
+
+ <div class="field">
+   <label class="label">Price</label>
+   <div class="control">
+     <input class="input" type="text" name="price" value="<%= game.price %>">
+   </div>
+ </div>
+
+ <div class="field">
+   <label class="label">Year Released</label>
+   <div class="control">
+     <input class="input" type="date" name="year_released" value="<%= game.year_released %>">
+   </div>
+ </div>
+
+ <div class="field">
+   <label class="label">Box art image</label>
+   <div class="control">
+     <input class="input" type="text" name="image" value="<%= game.image %>">
+   </div>
+ </div>
+
+ <div class="field is-grouped">
+  <div class="control">
+     <button class="button is-link">Submit</button>
+   </div>
+ </div>
+
+   <div class="control">
+     <button class=“button is-text”>Cancel</button>
+   </div>
+ </div>
+</form>
