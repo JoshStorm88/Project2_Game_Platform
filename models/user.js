@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
   username: String,
   email: { type: String, unique: true, required: true},
   password: { type: String, required: true },
-  pictures: [{type: mongoose.Schema.Types.ObjectId, ref: 'Game'}]
+  games: [{type: mongoose.Schema.Types.ObjectId, ref: 'Game'}]
 },{
   timestamps: true
 });

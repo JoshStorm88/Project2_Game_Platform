@@ -4,8 +4,6 @@ const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
 const gamesController = require('../controllers/games');
 
-
-// handle a request
 router.get('/',(req, res) => res.render('home', {
   isHomepage: true
 }));
@@ -22,8 +20,8 @@ router.route('/login')
   .post(sessions.create);
 
 
-// router.route('/logout')
-//   .get(sessions.delete);
+router.route('/logout')
+  .get(sessions.delete);
 
 
 router.route('/games')

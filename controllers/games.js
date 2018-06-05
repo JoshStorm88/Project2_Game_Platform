@@ -1,74 +1,68 @@
-const game = require('../models/game');
+const Game = require('../models/game.js');
 
-function gamesIndex(req, res){
-  game
+
+function indexRoute(req, res){
+  Game
     .find()
+    .populate('creator')
     .exec()
-    .then( games => {
-      res.render('games/index', {
-        title: 'All the RPG game goodness!',
-        games
-      });
+    .then( games =>{
+      res.render('games/index', {games});
     });
 }
-
-function gamesShow(req, res){
-  game
+function showRoute(req, res){
+  Game
     .findById(req.params.id)
     .exec()
-    .then( game => {
+    .then( game =>{
       res.render('games/show', {game});
     });
 }
-
-function gamesNew(req, res){
+function newRoute(req, res){
+  if(!res.locals.isLoggedIn) return res.redirect('/');
   res.render('games/new');
-
 }
-
-function gamesCreate(req, res){
-  game
+function createRoute(req, res){
+  const pictureData = req.body;
+  pictureData['creator'] = res.locals.user.id;
+  Game
     .create(req.body)
-    .then((game) =>{
-      return res.redirect(`/games/${game._id}`);
+    .then( game =>{
+      return res.redirect(`/games/${game.id}`);
     });
 }
-
-function gamesEdit(req, res){
-  game
+function editRoute(req, res){
+  Game
     .findById(req.params.id)
     .exec()
-    .then(game => {
+    .then( game =>{
       res.render('games/edit', {game});
     });
 }
-function gamesUpdate(req, res){
-  game
+function updateRoute(req, res){
+  Game
     .findById(req.params.id)
-    .exec()
-    .then(game => {
-      Object.assign(game, req.body);
-      return game.save();
+    .update(req.body)
+    .then( game =>{
+      return res.redirect(`/games/${game.id}`);
     });
-  return res.redirect(`/games/${req.params.id}`);
 }
-
-function gamesDelete(req, res){
-  game
+function deleteRoute(req, res){
+  Game
     .findById(req.params.id)
-    .exec()
-    .then(game => {
+    .then( game =>{
       game.remove();
       return res.redirect('/games');
     });
 }
 
+
 module.exports = {
-  index: gamesIndex,
-  show: gamesShow,
-  new: gamesNew,
-  create: gamesCreate,
-  edit: gamesEdit,
-  update: gamesUpdate,
-  delete: gamesDelete
+  index: indexRoute,
+  show: showRoute,
+  new: newRoute,
+  create: createRoute,
+  edit: editRoute,
+  update: updateRoute,
+  delete: deleteRoute
 };

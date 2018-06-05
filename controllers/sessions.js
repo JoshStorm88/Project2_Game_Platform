@@ -1,11 +1,11 @@
-const User = require('../models/user');
+const user = require('../models/user');
 
 function newRoute(req, res) {
   res.render('sessions/new');
 }
 
 function createRoute(req, res) {
-  User
+  user
     .findOne({email: req.body.email })
     .then( (user)=>{
       console.log(user);
