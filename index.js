@@ -1,27 +1,26 @@
 const express = require('express');
-const ejsLayouts = require('express-ejs-layouts');
+const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const methodOverride = require('method-override');
 const mongoose = require('mongoose');
-const app = express();
-const databaseURI = 'mongodb://localhost/mongoose-intro';
-mongoose.connect(databaseURI);
-const router = require('./config/routes');
 const session = require('express-session');
+const expressLayouts = require('express-ejs-layouts');
+const app = express();
+const routes = require('./config/routes');
+const User = require('./models/user');
+const { port, dbURI } = require('./config/enviroment');
 
+mongoose.connect(dbURI);
 
-app.set('view engine','ejs');
+app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
-app.use(ejsLayouts);
+
+app.use(expressLayouts);
+
+app.use(morgan('dev'));
+
 app.use(express.static(`${__dirname}/public`));
-app.use(bodyParser.urlencoded({ extended: true}));
-app.use(methodOverride((req) => {
-  if(req.body && typeof req.body === 'object' && '_method' in req.body){
-    const method = req.body._method;
-    delete req.body._method;
-    return method;
-  }
-}));
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(session({
   secret: process.env.SESSION_SECRET || 'ssh it\'s a secret',
@@ -29,7 +28,22 @@ app.use(session({
   saveUninitialized: false
 }));
 
-app.use(router);
 
-// listen out for incoming requests on PORT 4000
-app.listen(4000, ()=> console.log('Express is listening to port 4000'));
+app.use((req, res, next) => {
+  if(!req.session.userId) return next();
+  console.log('session middleware');
+  console.log(req.session);
+  User
+    .findById(req.session.userId)
+    .then((user) =>{
+      res.locals.user = user;
+      res.locals.isLoggedIn = true;
+      next();
+    });
+
+
+});
+
+app.use(routes);
+
+app.listen(port, () => console.log(`Express started on port: ${port}`));

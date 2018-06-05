@@ -4,14 +4,13 @@
   <% games.forEach( game =>{ %>
     <li>
       <%= game.title %>
-      <img style="max-width: 200px " src='<%= game.image %>' alt='<%= game.name %>' />
+      <img style="max-width: 200px " src="<%= game.image %>" alt='<%= game.name %>' />
       <% if(game.creator){%>
         <%= game.creator.username %>
       <% } %>
     </li>
   <% }) %>
 </ul>
-
 <% if(locals.isLoggedIn){ %>
   <% games.forEach((game, key) => { %>
     <div class="column is-one-third-desktop is-half-tablet">

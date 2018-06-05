@@ -23,8 +23,8 @@ function newRoute(req, res){
   res.render('games/new');
 }
 function createRoute(req, res){
-  const pictureData = req.body;
-  pictureData['creator'] = res.locals.user.id;
+  const gameData = req.body;
+  gameData['creator'] = res.locals.user.id;
   Game
     .create(req.body)
     .then( game =>{
