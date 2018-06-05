@@ -10,7 +10,7 @@ function createRoute(req, res) {
     .then( (user)=>{
       console.log(user);
       if(!user || !user.validatePassword(req.body.password)){
-        return res.status(401).render('sessions/new', {message: 'Unrecognised Credentials'});
+        return res.status(401).render('sessions/new', {message: 'Incorrect Login Information'});
       }
       req.session.userId = user.id;
 

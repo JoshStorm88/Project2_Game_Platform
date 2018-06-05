@@ -1,11 +1,24 @@
-<h1 class="title"><%= games.name %></h1>
-
+ <h1>to see our collection sign in</h1> <br>
 <div class="columns is-multiline">
+  <ul>
+  <% games.forEach( game =>{ %>
+    <li>
+      <%= game.title %>
+      <img style="max-width: 200px " src='<%= game.image %>' alt='<%= game.name %>' />
+      <% if(game.creator){%>
+        <%= game.creator.username %>
+      <% } %>
+    </li>
+  <% }) %>
+</ul>
+
+<% if(locals.isLoggedIn){ %>
   <% games.forEach((game, key) => { %>
     <div class="column is-one-third-desktop is-half-tablet">
       <div class="card">
         <div class="card-image">
           <figure class="image is-4by4">
+          <h1 class="title"><%= games.name %></h1>
             <img src="<%= game.image %>" alt="<%= game.name %>">
           </figure>
         </div>
@@ -23,3 +36,4 @@
     </div>
   <% }) %>
 </div>
+<% } %>
