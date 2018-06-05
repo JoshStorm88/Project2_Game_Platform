@@ -1,13 +1,29 @@
 const express = require('express');
 const router = express.Router();
-
+const registrations = require('../controllers/registrations');
+const sessions = require('../controllers/sessions');
 const gamesController = require('../controllers/games');
+
 
 // handle a request
 router.get('/',(req, res) => res.render('home', {
   isHomepage: true
 }));
 
+router.route('/')
+  .get(gamesController.index);
+
+router.route('/register')
+  .get(registrations.new)
+  .post(registrations.create);
+
+router.route('/login')
+  .get(sessions.new)
+  .post(sessions.create);
+
+
+// router.route('/logout')
+//   .get(sessions.delete);
 
 
 router.route('/games')
