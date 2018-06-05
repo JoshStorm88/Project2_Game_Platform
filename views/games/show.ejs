@@ -1,4 +1,4 @@
-<h2><%= game.name %></h2>
+<h1 class="gameTitle"><%= game.name %></h1>
 <div class="columns">
   <div class="column is-half">
     <img src="<%= game.image %>" alt="<%= game.name %>">
@@ -6,10 +6,9 @@
   <div class="column is-half">
     <ul>
       <li>Name: <%= game.name %></li>
-      <li>Price: £ <%= game.price %></li>
-      <li>Year of Release:<%= game.year %></li>
-      <li>Description: <%= game.description %></li>
-
+      <li>Price: £<%= game.price %></li>
+      <li>Year of Release:  <%= game.year %></li>
+      <li>Game Description: <br> <%= game.description %></li>
     </ul>
     <a href="/games/<%= game.id %>/edit">Edit</a>
     <form action="/games/<%= game.id %>/" method="post">
