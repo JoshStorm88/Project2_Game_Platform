@@ -16,18 +16,21 @@
       <a href="/games" class="navbar-item">
         Games Gallery
       </a>
+      <% if(locals.isLoggedIn){%>
       <a href="/games/new" class="navbar-item">
-        Add a Game to the Collection!
+          Add a Game to the Collection!
       </a>
-      <a href="#" class="navbar-item">
+      <a href="/logout" class="navbar-item">
+          User Logout
+      </a>
+      <%} else {%>
+      <a href="/login" class="navbar-item">
         User Login
       </a>
-      <a href="#" class="navbar-item">
-        User Logout
+      <a href="/register" class="navbar-item">
+        Become a member!
       </a>
-      <a href="#" class="navbar-item">
-        Profile
-      </a>
+      <% } %>
     </div>
   </div>
 </nav>
