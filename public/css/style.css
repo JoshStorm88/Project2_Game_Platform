@@ -19,7 +19,7 @@ section {
   background-color: black;
 }
 
-#navMenu.navbar-menu {
+.navbar-menu {
   background-color: black;
 }
 
@@ -32,7 +32,7 @@ html {
   color: white;
 }
 
-a.navbar-item {
+.navbar-item {
   color: white;
 }
 

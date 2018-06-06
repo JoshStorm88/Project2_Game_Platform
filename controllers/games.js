@@ -40,7 +40,7 @@ function editRoute(req, res){
     });
 }
 function updateRoute(req, res){
-  console.log(req.body)
+  console.log(req.body);
   Game
     .findById(req.params.id)
     .update(req.body)

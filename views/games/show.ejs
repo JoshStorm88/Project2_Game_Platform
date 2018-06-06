@@ -1,4 +1,3 @@
-<h1><%= game.name %></h1>
 <div class="columns">
   <div class="column is-half">
     <img src="<%= game.image %>" alt="<%= game.name %>">
@@ -7,7 +6,7 @@
     <ul>
       <li>Name: <%= game.name %></li>
       <li>Price: £<%= game.price %></li>
-      <li>Year of Release:  <%= game.year %></li>
+      <li>Date of Release:  <%= game.year %></li>
       <li>Game Description: <br> <%= game.description %></li>
     </ul>
     <a href="/games/<%= game.id %>/edit">Edit</a>

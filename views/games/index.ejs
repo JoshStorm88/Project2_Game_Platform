@@ -18,8 +18,8 @@
                 <%= game.name %>
               </a>
              </h4>
+             <h6 class="subtitle is-6"><%= game.year %></h6>
             <h6 class="subtitle is-6">£<%= game.price && game.price.toFixed(2) %></h6>
-            <h6 class="subtitle is-6">Year released <%= game.year %></h6>
 
           </div>
         </div>
@@ -28,5 +28,6 @@
   <% }) %>
 </div>
 <% } else { %>
-<p>Sign in to see gallaery </p>
+<img src="https://steamusercontent-a.akamaihd.net/ugc/105105127285686233/EDAF976715497EDC0DEFEB3015D88AE8342EF3A1/" alt="">
+<p>Sign in to see our Gallery! </p>
   <% } %>
