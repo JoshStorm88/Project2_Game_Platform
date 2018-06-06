@@ -1,17 +1,5 @@
- <h1>to see our collection sign in</h1> <br>
-<div class="columns is-multiline">
-  <ul>
-  <% games.forEach( game =>{ %>
-    <li>
-      <%= game.title %>
-      <img style="max-width: 200px " src="<%= game.image %>" alt='<%= game.name %>' />
-      <% if(game.creator){%>
-        <%= game.creator.username %>
-      <% } %>
-    </li>
-  <% }) %>
-</ul>
 <% if(locals.isLoggedIn){ %>
+  <div class="columns is-multiline">
   <% games.forEach((game, key) => { %>
     <div class="column is-one-third-desktop is-half-tablet">
       <div class="card">
@@ -19,20 +7,26 @@
           <figure class="image is-4by4">
           <h1 class="title"><%= games.name %></h1>
             <img src="<%= game.image %>" alt="<%= game.name %>">
+            <% if(game.creator){%>
+            <% } %>
           </figure>
         </div>
         <div class="card-content is-8">
           <div class="content">
             <h4 class="title is-4">
-              <a href="/games/<%= game.id %>"
-                <%= games.name %>
+              <a href="/games/<%= game.id %>">
+                <%= game.name %>
               </a>
              </h4>
             <h6 class="subtitle is-6">£<%= game.price && game.price.toFixed(2) %></h6>
+            <h6 class="subtitle is-6">Year released <%= game.year %></h6>
+
           </div>
         </div>
       </div>
     </div>
   <% }) %>
 </div>
-<% } %>
+<% } else { %>
+<p>Sign in to see gallaery </p>
+  <% } %>

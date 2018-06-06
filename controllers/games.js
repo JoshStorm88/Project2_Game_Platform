@@ -40,11 +40,12 @@ function editRoute(req, res){
     });
 }
 function updateRoute(req, res){
+  console.log(req.body)
   Game
     .findById(req.params.id)
     .update(req.body)
     .then( game =>{
-      return res.redirect(`/games/${game.id}`);
+      return res.redirect(`/games/${req.params.id}`);
     });
 }
 function deleteRoute(req, res){

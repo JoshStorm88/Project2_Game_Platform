@@ -1,6 +1,13 @@
 * {
   font-family: 'Alegreya Sans SC', sans-serif;
 }
+img {
+  color: white;
+}
+
+.columncontent{
+  background-color: rgba(0,0,0,0.5);
+}
 
 section {
   background: url("https://i.imgur.com/XhP2iCn.jpg");

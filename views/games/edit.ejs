@@ -1,6 +1,6 @@
 <h1>Edit <%= game.name %></h1>
 
-<form action="/games/<%= game.id %>" method="post">
+<form action="/games/<%= game._id %>" method="POST">
   <input type="hidden" name="_method" value="PUT">
  <div class="field">
    <label class="label">Game Name</label>
@@ -19,14 +19,14 @@
  <div class="field">
    <label class="label">Year Released</label>
    <div class="control">
-     <input class="input" type="date" name="year_released" value="<%= game.year %>">
+     <input class="input" type="date" name="year" value="<%= game.year %>">
    </div>
  </div>
 
  <div class="field">
    <label class="label">Game Description</label>
    <div class="control">
-     <input class="input" type="text" name="<%= game.description %>">
+     <input class="input" type="text" name="description" value="<%= game.description %>">
    </div>
  </div>
 
