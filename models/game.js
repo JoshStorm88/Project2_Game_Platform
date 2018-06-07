@@ -5,7 +5,8 @@ const gameSchema = new mongoose.Schema({
   price: Number,
   description: String,
   year: String,
-  image: String
+  image: String,
+  creator: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
 }, {
   timestamps: true
 });
