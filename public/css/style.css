@@ -1,8 +1,12 @@
 * {
   font-family: 'Alegreya Sans SC', sans-serif;
 }
-img {
+.image img {
   color: white;
+  max-width: 200%;
+  height: 500px;
+
+
 }
 
 .columncontent{

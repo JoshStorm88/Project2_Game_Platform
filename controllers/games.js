@@ -24,7 +24,7 @@ function newRoute(req, res){
 }
 function createRoute(req, res){
   const gameData = req.body;
-  gameData['creator'] = res.locals.user.id;
+  gameData['creator'] = res.locals.currentUser.id;
   Game
     .create(req.body)
     .then( game =>{

@@ -13,10 +13,13 @@
 
   <div class="navbar-menu" id="navMenu">
     <div class="navbar-end">
+      <% if(locals.isLoggedIn){%>
+        <span href="#" class="navbar-item">
+        <p>RPG welcomes you: <%= locals.currentUser.username %></p>
+        </span>
       <a href="/games" class="navbar-item">
         Games Gallery
       </a>
-      <% if(locals.isLoggedIn){%>
       <a href="/games/new" class="navbar-item">
           Add a Game to the Collection!
       </a>
@@ -24,8 +27,11 @@
           User Logout
       </a>
       <%} else {%>
+        <a href="/games" class="navbar-item">
+          Games Gallery
+        </a>
       <a href="/login" class="navbar-item">
-        User Login
+        Login
       </a>
       <a href="/register" class="navbar-item">
         Become a member!
