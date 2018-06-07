@@ -45,7 +45,3 @@ monsters.</p>
 
 ---
 # Final Thoughts
-
-I found this project to be challenging and incredibly frustrating at times, however it was incredibly rewarding to get everything to work the way i envisioned it. To take the concept of the game from the pages of my notebook to being a fully functional game which has been deployed is a great feeling.
-I am overall happy with how the game turned out, I would of liked to have bosses in the game, however i ran out of time and I wanted to get the game finished in order to style and polish the project.
-I shall be working on the game in my spare time and In doing so I hope to watch it grow with my abilities as a Developer.
